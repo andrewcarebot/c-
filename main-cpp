@@ -1,0 +1,77 @@
+/*Goblin Squad, Login System*/
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+vector<string> usernames;
+vector<string> passwords;
+
+string Username(){
+    string username;
+    cout<<"Please input your username: ";
+	cin>>username;
+	return password;
+}
+
+string Password(){
+    string password;
+    cout<<"\nPlease input your password: ";
+	cin>>password;
+	return password;
+}
+
+void signUp(string username, string password){
+    usernames.push_back(username);
+    passwords.push_back(password);
+}
+
+int loginReference(string username, string password) {
+	bool inUsernames = false;
+	bool inPasswords = false;
+	for (i = 0; i != usernames.size(); i++) {
+		if username == usernames.at(i) {
+			inUsernames = true;
+		}
+	}
+	for (i = 0; i != passwords.size();i++){
+        if password == passwords.at(i){
+            inPasswords = true;
+        }
+    }
+    if (inUsernames == true and inPasswords == true){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+    return 5;
+}
+
+int main()
+{
+    int option1;
+    int option2;
+    int leave = 0;
+    while (leave == 0){
+	    cout<<"Would you like to login, sign up, or exit? (1, 2, or 3)\n";
+	    cin>>option1;
+	    if (option1 == 1){
+	       if (loginReference(Username(), Password()) == 1){
+	           cout<<"Login successful!\n";
+	           leave++
+	       }
+	       else{
+	           cout<<"Login failed, please try again.\n";
+	       }
+	    }
+	    else if (option1 == 2){
+	        signUp(Username(), Password())
+	    }
+	    else if (option1 == 3){
+	        leave++;
+	    }
+    }
+	return 0;
+}
